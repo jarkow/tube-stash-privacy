@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tube Stash privacy policy: local library storage, YouTube requests and optional Chrome synchronization.">
+<title>Tube Stash Privacy Policy</title>
+<style>
+:root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.65; }
+body { margin: 0; background: #fbfaf7; color: #24282c; }
+main { max-width: 760px; margin: auto; padding: 32px 24px 64px; }
+h1 { line-height: 1.2; font-size: 2rem; } h2 { margin-top: 2rem; line-height: 1.3; }
+a { color: #1557a0; overflow-wrap: anywhere; } li { margin: .5em 0; }
+code { overflow-wrap: anywhere; }
+@media (prefers-color-scheme: dark) { body { background: #181b1e; color: #e9e9e5; } a { color: #8cc2ff; } }
+</style>
+</head>
+<body><main>
+<h1>Tube Stash Privacy Policy</h1>
+<p>Last updated: 25 October 2026</p>
+<p data-publication-draft><strong>Publication draft:</strong> replace <code>[PUBLISHER_NAME]</code> and <code>{{CONTACT_EMAIL}}</code> before publishing. Publish the matching HTML policy at a publicly accessible HTTPS URL and enter that URL in the Chrome Web Store. A private repository link is not a public privacy policy.</p>
+<p>Publisher: [PUBLISHER_NAME]   Privacy and support contact: {{CONTACT_EMAIL}}</p>
+<h2>Purpose and scope</h2>
+<p>Tube Stash is a Chrome extension for saving and organizing YouTube videos, watching them from a side panel or YouTube tabs, resuming playback, and following selected channels. This policy covers the extension. YouTube and Chrome services have their own privacy practices, described below.</p>
+<h2>Data handled on your device</h2>
+<p>Tube Stash stores its library in your Chrome profile using Chrome extension storage:</p>
+<ul><li>Playlist names and identifiers, saved video IDs, URLs, titles, thumbnail URLs,   ordering and added timestamps.</li>
+<li>Followed channel IDs, names, URLs and image URLs; fetched publication titles,   IDs and dates; seen/unread markers, check timestamps and errors.</li>
+<li>Video playback positions, duration, watched markers and playback-speed preferences.</li>
+<li>Preferences, selected playlist, and operational synchronization state, including   random installation/replica identifiers, revision counters, deletion records,   synchronization status and metadata-fetch attempt timestamps.</li></ul>
+<p>When you choose to save a current tab or import open tabs, Tube Stash reads available YouTube URLs and titles to create library entries. With optional YouTube and scripting access, its packaged content scripts read the YouTube video&#39;s identity, time, duration, playback state and speed to support progress, controls, handoff and autoplay. Once enabled, playback observation can operate in open YouTube watch tabs, including videos not yet saved in a playlist. It does not read Chrome&#39;s history database, messages, payment details, passwords or authentication tokens. It does not use the Chrome cookies API or collect your YouTube account identity.</p>
+<p>Session-only playback coordination data is kept in Chrome session storage. JSON backup files are created only when you export them and read when you select an import. They contain library and playback data and are not encrypted by Tube Stash. Store and share them with care. Local extension storage is not separately encrypted by Tube Stash; protection depends on your device and Chrome profile security.</p>
+<h2>Network requests and third parties</h2>
+<p>Tube Stash has no developer-operated backend, telemetry, analytics SDK or crash-report service. The publisher does not receive your library automatically. The extension does make the following connections to provide its features:</p>
+<ul><li><strong>YouTube metadata and feeds:</strong> with YouTube access, it requests public channel   pages, Atom feeds and video oEmbed metadata over HTTPS. These requests disclose   the requested video/channel ID or handle and ordinary connection information,   including IP address, to YouTube/Google. Extension metadata/feed fetches omit credentials.   Followed channels can refresh in the background while Chrome is running.</li>
+<li><strong>Images:</strong> displaying video thumbnails and channel images requests resources   from YouTube/Google image servers, including <code>i.ytimg.com</code>, <code>ggpht.com</code> and   <code>googleusercontent.com</code>. Image URLs identify the requested resource, and the   servers receive ordinary connection information. These requests can occur when   you open a library containing images, even if synchronization is off.</li>
+<li><strong>Playback:</strong> the embedded YouTube frame and its media resources connect to   YouTube/Google. YouTube receives the selected video, playback requests and   connection/device information. The extension supplies a referrer identifying   the public extension ID, a temporary player-session   marker, and a requested start position when resuming. The frame uses Chrome&#39;s   credentialless mode: it runs signed out with ephemeral cookies/storage isolated   from your normal profile session. Tube Stash does not provide YouTube login in   this frame. A normal YouTube tab can use your profile&#39;s existing signed-in   session and is governed by YouTube&#39;s usual privacy practices.</li>
+<li><strong>Optional Chrome synchronization:</strong> only when you enable the switch, Tube Stash   writes playlist names and IDs, video IDs, channel IDs and their order, plus random   replica identifiers and revision/deletion records, to <code>chrome.storage.sync</code>.   Chrome can transfer that structure through Google&#39;s synchronization service   according to your Chrome account/settings. Video titles, images, publication   caches, playback positions, watched markers and speeds are not part of this   synchronized payload. Details may subsequently be fetched from YouTube on a   receiving device with permission. Tube Stash does not receive your Google   credentials, account email or access tokens.</li></ul>
+<p>These necessary service requests mean that data does leave your device; local storage does not make YouTube playback or optional Chrome sync offline services. Google&#39;s handling of its services is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://www.google.com/chrome/privacy/">Chrome Privacy Notice</a>. YouTube may display advertising; Tube Stash does not add its own advertisements or use library data for advertising.</p>
+<h2>Permissions and your choices</h2>
+<p>The extension uses storage for the library and optional sync, alarms for channel refresh/sync scheduling, active-tab access for saving the current video, the side panel for its interface, and context menus for saving YouTube links. A declarative network request rule sets the player referrer only on Tube Stash&#39;s own YouTube embedded-frame navigation; it does not intercept general browsing traffic.</p>
+<p>YouTube/youtu.be site access and scripting are optional and requested for features such as importing YouTube tabs, fetching titles/channels, playback observation, embedded controls and autoplay. You can refuse them or revoke access in Chrome&#39;s extension settings; features that need that access will stop working. You can still manage stored entries and backups. Synchronization is off until enabled in the UI.</p>
+<h2>Retention, access and deletion</h2>
+<p>Local data remains in your Chrome profile until changed, removed, cleared through Chrome&#39;s extension storage controls or removed with the extension. You can inspect, edit and remove library entries in Tube Stash and export a JSON copy. Removing a playlist entry does not necessarily erase independent playback records or sync deletion records.</p>
+<p>Disabling Tube Stash synchronization stops its synchronization work; it does not erase previously synchronized data, local copies, or data on other devices. Sync keeps deletion records to prevent stale devices restoring removed entries. There is no in-extension command to erase all synchronized replica records. Use Chrome&#39;s account/synchronization data controls to manage server-side data, and clear extension storage on each relevant profile if you want to remove local copies. Do not assume uninstalling from one profile deletes copies on other devices or Google&#39;s servers. Exported files remain wherever you saved them until you delete them yourself.</p>
+<h2>Limited Use and publisher access</h2>
+<p>Tube Stash&#39;s use of user data complies with the Chrome Web Store User Data Policy, including the Limited Use requirements. The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+<p>Data is used only for the disclosed video-library and playback features. The publisher does not sell user data, use or transfer it for personalized advertising, or use it to determine creditworthiness or for lending. Transfers initiated by the extension are limited to the services described above for these features. The publisher has no routine access to your stored library and does not allow humans to read it through a developer service. If you voluntarily send support material, send only what is needed and explicitly authorize review of that material.</p>
+<h2>Changes and contact</h2>
+<p>Material changes to data handling will be reflected in this policy and disclosed in the extension when required. For privacy questions or support, contact {{CONTACT_EMAIL}}. Do not send passwords, tokens or private backups unless you intentionally choose to share specific information needed for support.</p>
+</main></body>
+</html>
